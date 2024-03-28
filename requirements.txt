@@ -1,5 +1,7 @@
 langchain
 unstructured
+unstructured[md]
 chromadb
 openai
 tiktoken
+dotenv
