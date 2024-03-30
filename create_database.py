@@ -12,7 +12,8 @@ import shutil
 load_dotenv()
 
 CHROMA_PATH = "chroma"
-DATA_PATH = "/home/cedric/.wikis/"
+# DATA_PATH = "/home/cedric/.wikis/"
+DATA_PATH = "data/books/"
 
 
 def main():
