@@ -3,6 +3,7 @@ import {TextLoader} from "langchain/document_loaders/fs/text"
 import {RecursiveCharacterTextSplitter} from "langchain/text_splitter"
 import {MemoryVectorStore} from "langchain/vectorstores/memory"
 import {OpenAIEmbeddings} from "@langchain/openai"
+import {CloseVectorNode} from "langchain/vectorstores/closevector/node"
 
 load_dotenv()
 
@@ -41,7 +42,8 @@ async function split_text(docs) {
 }
 
 async function save_to_chroma(chunks) {
-    const vectorStore = await MemoryVectorStore.fromDocuments(chunks, new OpenAIEmbeddings())
+    const vectorStore = await CloseVectorNode.fromDocuments(chunks, new OpenAIEmbeddings())
+    vectorStore.save(CHROMA_PATH)
     console.log("Saved chunks to Chroma")
 }
 
