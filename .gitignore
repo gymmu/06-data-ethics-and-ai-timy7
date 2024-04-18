@@ -1,3 +1,4 @@
 .env
 chroma/
 data/
+js-version/public/vectorstore
