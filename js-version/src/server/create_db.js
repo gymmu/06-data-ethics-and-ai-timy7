@@ -11,7 +11,7 @@ load_dotenv()
 console.log("Create DB")
 console.log("Load API Key:", process.env.OPENAI_API_KEY)
 
-const CHROMA_PATH = "chroma"
+const vectorStorePath = "public/vectorstore"
 const DATA_PATH = "public/data/"
 
 async function main() {
@@ -49,7 +49,7 @@ async function split_text(docs) {
 
 async function save_to_chroma(chunks) {
     const vectorStore = await CloseVectorNode.fromDocuments(chunks, new OpenAIEmbeddings())
-    vectorStore.save(CHROMA_PATH)
+    vectorStore.save(vectorStorePath)
     console.log("Saved chunks to Chroma")
 }
 

@@ -7,6 +7,8 @@ import {StringOutputParser} from "@langchain/core/output_parsers"
 
 load_dotenv()
 
+const vectorStorePath = "public/vectorstore"
+
 
 const PROMT_TEMPLATE = `Answer the question based only on the following context:
 
@@ -17,9 +19,12 @@ const PROMT_TEMPLATE = `Answer the question based only on the following context:
 Answer the question based on the above context: {question}
 `
 
-async function query(arg) {
+/**
+ * Ask a Question about the documents in your store.
+ */
+export async function query(arg) {
     console.log("Querying: " + arg)
-    const vectorStore = await CloseVectorNode.load("chroma", new OpenAIEmbeddings())
+    const vectorStore = await CloseVectorNode.load(vectorStorePath, new OpenAIEmbeddings())
     const result = await vectorStore.similaritySearch(arg, 3)
     console.log("Result:", result)
 
@@ -36,7 +41,7 @@ async function query(arg) {
         context: result
     })
 
-    console.log("Answer: " + answer)
+    return {answer: answer, context: result, question: arg}
 }
 
-await query(process.argv[2])
+// await query(process.argv[2])
