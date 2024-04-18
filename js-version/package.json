@@ -19,6 +19,7 @@
     "closevector-node": "^0.1.6",
     "closevector-web": "^0.1.6",
     "dotenv": "^16.4.5",
-    "langchain": "^0.1.32"
+    "langchain": "^0.1.32",
+    "pdf-parse": "^1.1.1"
   }
 }

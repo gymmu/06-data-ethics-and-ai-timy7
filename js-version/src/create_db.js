@@ -1,9 +1,10 @@
-import {config as load_dotenv} from "dotenv"
-import {TextLoader} from "langchain/document_loaders/fs/text"
-import {RecursiveCharacterTextSplitter} from "langchain/text_splitter"
-import {MemoryVectorStore} from "langchain/vectorstores/memory"
-import {OpenAIEmbeddings} from "@langchain/openai"
-import {CloseVectorNode} from "langchain/vectorstores/closevector/node"
+import { config as load_dotenv } from "dotenv"
+import { TextLoader } from "langchain/document_loaders/fs/text"
+import { PDFLoader } from "langchain/document_loaders/fs/pdf"
+import { DirectoryLoader } from "langchain/document_loaders/fs/directory"
+import { RecursiveCharacterTextSplitter } from "langchain/text_splitter"
+import { OpenAIEmbeddings } from "@langchain/openai"
+import { CloseVectorNode } from "langchain/vectorstores/closevector/node"
 
 load_dotenv()
 
@@ -25,9 +26,14 @@ async function generate_data_store() {
 }
 
 async function load_documents() {
-    const loader = new TextLoader("public/data/alice_in_wonderland.md")
-    const docs = await loader.load()
-    console.log("Documents loaded")
+    const dirLoader = new DirectoryLoader(DATA_PATH, {
+        ".md": (path) => new TextLoader(path),
+        ".txt": (path) => new TextLoader(path),
+        ".pdf": (path) => new PDFLoader(path)
+    })
+
+    const docs = await dirLoader.load()
+
     return docs
 }
 
