@@ -1,5 +1,5 @@
 # TODOs
 
-- [ ] Store embeddings in chrome in the js verison
-- [ ] Ask a query in the js-version
+- [X] Store embeddings in closevector in the js verison
+- [X] Ask a query in the js-version
 - [ ] Display the query in the js-version on a website
