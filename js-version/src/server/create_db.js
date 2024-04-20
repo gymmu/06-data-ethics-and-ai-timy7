@@ -1,10 +1,13 @@
 import { config as load_dotenv } from "dotenv"
 import { TextLoader } from "langchain/document_loaders/fs/text"
 import { PDFLoader } from "langchain/document_loaders/fs/pdf"
+import { PuppeteerWebBaseLoader } from "langchain/document_loaders/web/puppeteer"
 import { DirectoryLoader } from "langchain/document_loaders/fs/directory"
 import { RecursiveCharacterTextSplitter } from "langchain/text_splitter"
 import { OpenAIEmbeddings } from "@langchain/openai"
 import { CloseVectorNode } from "langchain/vectorstores/closevector/node"
+
+import puppeteer from "puppeteer"
 
 load_dotenv()
 
@@ -21,7 +24,6 @@ async function main() {
 async function generate_data_store() {
     const documents = await load_documents()
     const chunks = await split_text(documents)
-    console.log(chunks)
     await save_to_chroma(chunks)
 }
 
@@ -34,7 +36,48 @@ async function load_documents() {
 
     const docs = await dirLoader.load()
 
-    return docs
+    const links = await getWebsiteLinks("https://gymmu.github.io/gym-inf/")
+    console.log(links)
+    const websites = []
+    for (let i = 0; i < links.length; i++) {
+        const link = links[i]
+        console.log("Loading website: ", link)
+
+        const webLoader = new PuppeteerWebBaseLoader(link, {
+            launchOptions: {
+                headless: "new"
+            }
+        })
+        const website = await webLoader.load()
+        websites.push(website)
+    }
+
+
+    console.log("Websites:", websites)
+
+    // return [docs, websites].flat()
+    return websites.flat()
+}
+
+async function getWebsiteLinks(baseUrl) {
+    const browser = await puppeteer.launch({ headless: "new" });
+    const page = await browser.newPage();
+    console.log("Opening page: ", baseUrl)
+    await page.goto(baseUrl);
+
+    await page.waitForSelector("a")
+
+    const content = await page.content()
+    console.log(content)
+
+    const links = await page.$$eval("a", as => {
+        const l = as.map((a) => a.href)
+        return l
+    })
+    console.log("Gathered the following links:", links)
+    browser.close()
+    return links
+
 }
 
 async function split_text(docs) {
