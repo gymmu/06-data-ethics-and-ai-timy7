@@ -7,7 +7,7 @@ import {StringOutputParser} from "@langchain/core/output_parsers"
 
 load_dotenv()
 
-const vectorStorePath = "public/vectorstore"
+const vectorStorePath = "closevector"
 
 
 const PROMT_TEMPLATE = `Answer the question based only on the following context:

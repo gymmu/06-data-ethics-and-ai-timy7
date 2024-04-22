@@ -1,8 +1,0 @@
-langchain
-langchain-openai
-unstructured
-unstructured[md]
-chromadb
-openai
-tiktoken
-dotenv

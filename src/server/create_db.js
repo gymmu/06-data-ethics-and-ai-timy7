@@ -14,7 +14,7 @@ load_dotenv()
 console.log("Create DB")
 console.log("Load API Key:", process.env.OPENAI_API_KEY)
 
-const vectorStorePath = "public/vectorstore"
+const vectorStorePath = "closevector"
 const DATA_PATH = "public/data/"
 
 async function main() {
