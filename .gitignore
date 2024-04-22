@@ -25,3 +25,4 @@ dist-ssr
 
 closevector/
 .env
+public/data
