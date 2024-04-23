@@ -21,6 +21,7 @@
     "closevector-node": "^0.1.6",
     "closevector-web": "^0.1.6",
     "cors": "^2.8.5",
+    "dompurify": "^3.1.0",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
     "langchain": "^0.1.32",

@@ -1,4 +1,5 @@
 import './style.css'
+import DOMPurify from 'dompurify'
 
 /**
  * Lese die Query von der Webseite aus, und stelle eine Frage an den
@@ -28,11 +29,6 @@ function renderAnswer(answer, elem) {
     elem.appendChild(newContainer)
 }
 
-/**
-* Pass the context into the renderer. The context has the source text, as
-* well as the metadata to the source.
-* { metadata: {loc: {lines: from, to}, source}, pageContent }
-*/
 function renderSources(sources, elem) {
     sources.forEach(source => {
         const {metadata, pageContent} = source
@@ -41,24 +37,23 @@ function renderSources(sources, elem) {
     })
 }
 
+function sanatize(content) {
+    return DOMPurify.sanitize(content, {ALLOWED_TAGS: []})
+}
+
 function createSourceElem(text, metadata) {
+    const html = `<div class="source-container">
+    <div class="source-text">
+... ${sanatize(text)} ...
+    </div>
+    <div class="source-metadata">
+        <a href="${metadata.source}">${metadata.source}</a>
+    </div>
+</div>
+`
     const newContainer = document.createElement('div')
     newContainer.classList.add('source-container')
-
-    const newText = document.createElement('div')
-    newText.classList.add('source-text')
-    newText.textContent = `... ${text} ...`
-    newContainer.appendChild(newText)
-
-    const newMeta = document.createElement('div')
-    newMeta.classList.add('source-metadata')
-
-    const newMetaLink = document.createElement('a')
-    newMetaLink.href = metadata.source
-    newMetaLink.textContent = metadata.source
-    newMeta.appendChild(newMetaLink)
-
-    newContainer.appendChild(newMeta)
+    newContainer.innerHTML = html
 
     return newContainer
 }
