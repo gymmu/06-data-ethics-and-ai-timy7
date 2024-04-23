@@ -7,6 +7,7 @@ body {
     background-color: #333;
     color: white;
     margin: 0;
+    font-family: "Arial", "Lato", "Roboto", sans-serif;
 }
 
 #ask-form {
@@ -14,6 +15,18 @@ body {
     grid-template-columns: 4fr 1fr;
     gap: 2rem;
     height: 4rem;
+    margin: 0 auto;
+    width: 80%;
+}
+
+#ask-form input {
+    font-size: 1.2rem;
+    padding-left: 1rem;
+}
+
+#ask-form button {
+    font-size: 1.2rem;
+    font-weight: bold;
 }
 
 h1, h2 {

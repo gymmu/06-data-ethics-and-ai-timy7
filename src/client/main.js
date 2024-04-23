@@ -66,7 +66,7 @@ document.getElementById("ask-form").addEventListener("submit", async (ev) => {
     ev.preventDefault()
     const question = document.getElementById('question').value
     const output = document.querySelector("#output")
-    output.innerHTML = "<p>...waiting</p>"
+    output.innerHTML = "<h2>... waiting ...</h2>"
     const response = await query(question)
 
     console.log(response)
