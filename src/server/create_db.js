@@ -8,12 +8,12 @@ import { OpenAIEmbeddings } from "@langchain/openai"
 import { CloseVectorNode } from "@langchain/community/vectorstores/closevector/node"
 
 import puppeteer from "puppeteer"
-import fs from "fs"
 
+import { loadJSON } from "./utils.js"
 load_dotenv()
 
 const vectorStorePath = "closevector"
-const DATA_PATH = "public/data/"
+const DATA_PATH = "data/"
 
 async function main() {
     await generate_data_store()
@@ -23,12 +23,6 @@ async function generate_data_store() {
     const documents = await load_documents()
     const chunks = await split_text(documents)
     await save_to_chroma(chunks)
-}
-
-function readLinks() {
-
-    const file = fs.readFileSync("public/websites.json", "utf8")
-    return JSON.parse(file)
 }
 
 async function load_documents() {
@@ -41,7 +35,7 @@ async function load_documents() {
     const docs = await dirLoader.load()
 
     // const links = await getWebsiteLinks("https://gymmu.github.io/gym-inf/")
-    const links = await readLinks()
+    const links = loadJSON("config/websites.json")
     const websites = []
     for (let i = 0; i < links.length; i++) {
         const link = links[i]
