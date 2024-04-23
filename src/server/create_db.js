@@ -5,14 +5,12 @@ import { PuppeteerWebBaseLoader } from "langchain/document_loaders/web/puppeteer
 import { DirectoryLoader } from "langchain/document_loaders/fs/directory"
 import { RecursiveCharacterTextSplitter } from "langchain/text_splitter"
 import { OpenAIEmbeddings } from "@langchain/openai"
-import { CloseVectorNode } from "langchain/vectorstores/closevector/node"
+import { CloseVectorNode } from "@langchain/community/vectorstores/closevector/node"
 
 import puppeteer from "puppeteer"
+import fs from "fs"
 
 load_dotenv()
-
-console.log("Create DB")
-console.log("Load API Key:", process.env.OPENAI_API_KEY)
 
 const vectorStorePath = "closevector"
 const DATA_PATH = "public/data/"
@@ -27,6 +25,12 @@ async function generate_data_store() {
     await save_to_chroma(chunks)
 }
 
+function readLinks() {
+
+    const file = fs.readFileSync("public/websites.json", "utf8")
+    return JSON.parse(file)
+}
+
 async function load_documents() {
     const dirLoader = new DirectoryLoader(DATA_PATH, {
         ".md": (path) => new TextLoader(path),
@@ -36,8 +40,8 @@ async function load_documents() {
 
     const docs = await dirLoader.load()
 
-    const links = await getWebsiteLinks("https://gymmu.github.io/gym-inf/")
-    console.log(links)
+    // const links = await getWebsiteLinks("https://gymmu.github.io/gym-inf/")
+    const links = await readLinks()
     const websites = []
     for (let i = 0; i < links.length; i++) {
         const link = links[i]
@@ -52,11 +56,9 @@ async function load_documents() {
         websites.push(website)
     }
 
+    const flatWebsites = websites.flat()
 
-    console.log("Websites:", websites)
-
-    // return [docs, websites].flat()
-    return websites.flat()
+    return [docs, flatWebsites].flat()
 }
 
 async function getWebsiteLinks(baseUrl) {
