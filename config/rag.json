@@ -1,0 +1,7 @@
+{
+    "chunkSize": 300,
+    "chunkOverlap": 100,
+    "model": "gpt-3.5-turbo",
+    "temperature": 0.3,
+    "numDocs": 5
+}

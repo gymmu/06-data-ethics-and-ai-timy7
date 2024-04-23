@@ -5,9 +5,12 @@ import { PromptTemplate } from "@langchain/core/prompts"
 import { createStuffDocumentsChain } from "langchain/chains/combine_documents"
 import {StringOutputParser} from "@langchain/core/output_parsers"
 
+import { loadJSON } from "./utils.js"
+
 load_dotenv()
 
 const vectorStorePath = "closevector"
+const ragConfig = loadJSON("config/rag.json")
 
 
 const PROMT_TEMPLATE = `Answer the question based only on the following context:
@@ -25,10 +28,10 @@ Answer the question based on the above context: {question}
 export async function query(arg) {
     console.log("Querying: " + arg)
     const vectorStore = await CloseVectorNode.load(vectorStorePath, new OpenAIEmbeddings())
-    const result = await vectorStore.similaritySearch(arg, 3)
+    const result = await vectorStore.similaritySearch(arg, ragConfig.numDocs)
     console.log("Result:", result)
 
-    const llm = new ChatOpenAI({ modelName: "gpt-3.5-turbo", temperature: 0 })
+    const llm = new ChatOpenAI({ modelName: ragConfig.model, temperature: ragConfig.temperature })
     const customRagPrompt = PromptTemplate.fromTemplate(PROMT_TEMPLATE)
     const ragChain = await createStuffDocumentsChain({
         llm,

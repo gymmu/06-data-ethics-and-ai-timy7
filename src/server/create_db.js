@@ -14,6 +14,7 @@ load_dotenv()
 
 const vectorStorePath = "closevector"
 const DATA_PATH = "data/"
+const ragConfig = loadJSON("config/rag.json")
 
 async function main() {
     await generate_data_store()
@@ -78,8 +79,8 @@ async function getWebsiteLinks(baseUrl) {
 
 async function split_text(docs) {
     const splitter = new RecursiveCharacterTextSplitter({
-        chunkSize: 300,
-        chunkOverlap: 100
+        chunkSize: ragConfig.chunkSize,
+        chunkOverlap: ragConfig.chunkOverlap
     })
     const chunks = await splitter.splitDocuments(docs)
     console.log("Documents splitted")
