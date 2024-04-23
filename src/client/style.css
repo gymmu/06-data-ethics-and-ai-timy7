@@ -1,6 +1,12 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+
 body {
     background-color: #333;
     color: white;
+    margin: 0;
 }
 
 #ask-form {
@@ -10,7 +16,7 @@ body {
     height: 4rem;
 }
 
-h1 {
+h1, h2 {
     text-align: center;
 }
 
@@ -18,8 +24,27 @@ h1 {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 80%;
+    width: 100%;
     gap: 1rem;
+    margin: 2rem auto;
+    text-align: justify;
+}
+
+#output > div {
+    padding: 1rem 10%;
+}
+
+#output > div:nth-child(2n - 1) {
+    background-color: #555;
+}
+
+#output .answer-container {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+#output .source-metadata {
+    margin-top: 0.5rem;
 }
 
 #output a {

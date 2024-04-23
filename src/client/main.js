@@ -30,6 +30,10 @@ function renderAnswer(answer, elem) {
 }
 
 function renderSources(sources, elem) {
+    const title = document.createElement('h2')
+    title.textContent = "Quellen"
+    elem.appendChild(title)
+
     sources.forEach(source => {
         const {metadata, pageContent} = source
         const newElem = createSourceElem(pageContent, metadata)
