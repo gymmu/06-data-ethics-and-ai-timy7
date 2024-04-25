@@ -1,0 +1,48 @@
+{
+  "latex-workshop.latex.outDir": "%WORKSPACE_FOLDER%/documents/out",
+  "latex-workshop.latex.recipes": [
+    {
+      "name": "quick",
+      "tools": ["latexmk"]
+    },
+    {
+      "name": "full",
+      "tools": ["latexmk", "biber", "latexmk", "latexmk"]
+    }
+  ],
+  "latex-workshop.latex.tools": [
+    {
+      "name": "latexmk",
+      "command": "latexmk",
+      "args": [
+        "-synctex=1",
+        "-interaction=nonstopmode",
+        "-file-line-error",
+        "-pdf",
+        "-outdir=%OUTDIR%",
+        "-auxdir=%WORKSPACE_FOLDER%/documents/build",
+        "-pdflatex",
+        "%DOC%"
+      ],
+      "env": {
+        "TEXINPUTS": ".:%WORKSPACE_FOLDER%/documents/includes//:",
+        "TEXMFHOME": "%WORKSPACE_FOLDER%/documents/includes"
+      }
+    },
+    {
+      "name": "bibtex",
+      "command": "bibtex",
+      "args": ["%DOCFILE%"],
+      "env": {}
+    },
+    {
+      "name": "biber",
+      "command": "biber",
+      "args": [
+        "--input-directory=%WORKSPACE_FOLDER%/documents/build",
+        "%DOCFILE%"
+      ],
+      "env": {}
+    }
+  ]
+}

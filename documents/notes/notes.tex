@@ -1,0 +1,44 @@
+\documentclass{article}
+
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{hyperref}
+\usepackage{csquotes}
+
+\usepackage[
+    backend=biblatex,
+    style=apa,
+    sortlocale=de_DE,
+    natbib=true,
+    url=false,
+    doi=false,
+    sortcites=true,
+    sorting=nyt,
+    isbn=false,
+    hyperref=true,
+    backref=false,
+    giveninits=false,
+    eprint=false]{biblatex}
+\addbibresource{../references/bibliography.bib}
+
+\title{Notizen zum Projekt}
+\author{Name des Autors}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\abstract{
+    Dieses Dokument ist eine Sammlung von Notizen zu dem Projekt. Die Struktur innerhalb des
+    Projektes ist gleich ausgelegt wie in der Hauptarbeit, somit kann hier einfach geschrieben
+    werden, und die Teile die man verwenden möchte, kann man direkt in die Hauptdatei ziehen.
+}
+
+\tableofcontents
+
+\input{section_ai.tex}
+
+\printbibliography
+
+\end{document}
