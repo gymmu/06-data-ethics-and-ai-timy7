@@ -31,6 +31,20 @@ Um mit Latex arbeiten zu können, müssen Sie zuerst Latex für Ihr Betriebssyst
 installieren. Hier finden die den entsprechenden Link:
 [miktex](https://miktex.org/download)
 
+Wir verwenden `latexmk` um das Dokument zu erstellen und je nach Bedarf das Quellenverzeichnis zu erstellen. Um dieses zu verwenden müssen noch [perl](https://www.perl.org/get.html) installieren.
+
+<details>
+    <summary><b>Vorsicht bei MacOS</b></summary>
+    Bei MacOS ist die `MikTeX`-Installation ein weniger schwieriger. Da müssen Sie nach der Installation noch sagen wo Ihr System die Programme die `MikTeX` installiert finden kann. Das können Sie mit dem folgenden Befehl im Terminal machen:
+
+    ```bash
+    echo export 'PATH=~/bin:$PATH'>> ~/.zprofile
+    ```
+
+    Mehr dazu können Sie hier finden: [Miktex auf MacOS installieren](https://miktex.org/howto/install-miktex-mac) und [Miktex Pfad anpassen](https://miktex.org/howto/modify-path)
+
+</details>
+
 Damit Sie Latex einfach und bequem in VSCode verwenden können, brauchen Sie
 zusätzlich noch diese Erweiterung. Drücken Sie einfach `CTRL + P` und geben Sie
 den folgenden Befehl ein:
@@ -41,6 +55,10 @@ ext install James-Yu.latex-workshop
 
 Sie finden dann im Ordner `documents` mehrere Unterordner mit verschiedenen
 Latex Projekten, die Sie verwenden können. In `documents/tutorial/tutorial.tex` finden Sie eine Einführung in Latex die Sie durcharbeiten können. Versuchen Sie zuerst das Dokument zu bauen/compilieren, und lesen Sie sich dann das PDF durch. Machen Sie danach Anpassungen am Dokument.
+
+Das PDF sollte automatisch erstellt werden wenn Sie das Dokument speichern, Sie können aber auch oben rechts auf den grünen Pfeil klicken. Direkt daneben finden Sie einen Button der Ihnen das PDF rechts im Fenster öffnet.
+
+Wenn Sie das PDF erstellen, dann wird `MikTeX` Sie fragen ob Sie die zusätzlichen Pakete installieren möchten. Da müssen Sie sich beim ersten mal einmal komplett durch klicken, damit von allen benötigten Paketen die neusten Versionen verfügbar sind.
 
 ### RAG (Retrieval-Augmented Generation)
 
