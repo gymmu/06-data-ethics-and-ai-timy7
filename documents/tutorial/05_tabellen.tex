@@ -1,0 +1,77 @@
+\section{Tabellen}
+Tabellen werden mit der \verb|{tabular}|-Umgebung erstellt. Für beste Ergebnisse empfiehlt es sich jedoch, Ihre gesamte Tabelle innerhalb einer \verb|{table}|-Umgebung zu platzieren. Dadurch können Sie die Tabelle zentrieren, falls gewünscht, eine Beschriftung, ein Label hinzufügen und die Tabelle im Allgemeinen einfacher an anderer Stelle in Ihrem Bericht referenzieren. Spalten in Ihrer Tabelle werden durch das Kaufmannsund-Symbol ''\verb|&|'' getrennt. Wenn Sie einen vertikalen Separator zwischen Ihren Spalten möchten, platzieren Sie ein vertikales Trennsymbol ''\texttt{|}'' zwischen Ihren Ausrichtungszeichen.
+
+\begin{table}[h]
+\centering
+\label{JustTable}
+\begin{tabular}{|l|l|}
+\hline
+Code & Ausrichtungstyp \\
+\hline
+l & linksbündig \\
+r & rechtsbündig \\
+c & zentriert \\
+\verb|\hline| & horizontale Trennlinie \\
+$|$ & vertikaler Separator\\
+\hline
+\end{tabular}
+\caption{Gemeinsame tabellarische Befehle}
+\end{table}
+
+\noindent Die obige Tabelle wurde mit folgendem Code erstellt.
+\begin{verbatim}
+\begin{table}[h]
+\centering
+\label{JustTable}
+\begin{tabular}{|l|l|}
+\hline
+Code & Ausrichtungstyp \\
+\hline
+l & linksbündig \\
+r & rechtsbündig \\
+c & zentriert \\
+\verb|\hline| & horizontale Trennlinie \\
+$|$ & vertikaler Separator\\
+\hline
+\end{tabular}
+\caption{Gemeinsame tabellarische Befehle}
+\end{table}
+\end{verbatim}
+
+
+\newpage
+\begin{ex}\label{ex:5}
+Fügen Sie wieder einen neuen Abschnittstitel \emph{''Aufgabe \ref{ex:5}''}  in Overleaf hinzu.\\
+Erstellen Sie die unten dargestellten Tabellen inklusive Text und Verweis.
+
+\begin{table}[H]
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+    Zeilennummer & Text & Formel & Zahl \\ \hline
+    eins & Hallo & $a^2$ & 3  \\ \hline
+    zwei & Fritzli & $2b-\sin(\alpha)$ & 13\\
+\hline
+\end{tabular}
+\caption{Beispieltabelle}
+\label{table:SW}
+\end{center}
+\end{table}
+
+
+\begin{table}[H]
+\begin{center}
+\begin{tabular}{|cccc|}
+\hline
+\color{red}{Zeilennummer} &  \color{blue}{Text} & \color{green}{Formel} & Zahl \\ \hline \hline
+    eins & Hallo & $a^2$ & 3  \\ \hline
+    zwei & Fritzli & $2b-\sin(\alpha)$ & 13\\
+\hline
+\end{tabular}
+\caption{Farbige Beispieltabelle}
+\label{table:farbig}
+\end{center}
+\end{table}
+
+\emph{Tabelle \ref{table:SW} ist schwarz-weiss, Tabelle \ref{table:farbig} ist farbig. }
+\end{ex}

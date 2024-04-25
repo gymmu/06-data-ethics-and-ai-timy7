@@ -1,0 +1,38 @@
+\section{Mathematik mit \LaTeX}
+Der wahrscheinlich grösste Vorteil der Verwendung von \LaTeX\  liegt in der Fähigkeit, mathematische Gleichungen schnell und sauber zu notieren. Zum Beispiel ist die berühmte Gleichung $E = mc^2$ sehr einfach darzustellen, ebenso wie etwas Anspruchsvolleres wie $\sum_{n=1}^{\infty} 2^{-n}=1$.\\ Die Komplexität, die \LaTeX\ bewältigen kann, ist ziemlich erstaunlich. %Selbst Gleichungen mit unendlichen Summen wie $\sum_{n=1}^{\infty} 2^{-n}=1$ werden problemlos behandelt.
+
+\subsection{Inline-Gleichungen}
+Mathematische Ausdrücke, die sich im Fliesstext befinden, werden von Dollarzeichen (\verb|$|) umgeben. Eine einfache Gleichung wie $\vec{F}=m\cdot \vec{a}$ kann mit dem Code \verb|$\vec{F}=m\cdot \vec{a}$| inline platziert werden.
+
+\subsection{Display-Gleichungen}
+Mathematische Ausdrücke, die in einer neuen Zeile (und typischerweise zentriert) platziert werden sollen, werden als Display-Gleichungen bezeichnet und sind von den Symbolen \verb|\[...\]| umgeben. Die gleiche Formel wie oben im Display-Stil geschrieben würde folgendermassen aussehen:
+
+\begin{verbatim}
+\[
+\vec{F}=m\cdot \vec{a}
+\]
+\end{verbatim}
+
+\noindent und würde wie folgt aussehen:
+\[
+\vec{F}=m\cdot \vec{a}.
+\] 
+
+\noindent Wenn Sie Ihre Gleichungen nummerieren möchten, so können Sie auch mit \verb|\begin{equation}| und \verb|\end{equation}| arbeiten.
+
+%\newpage
+\begin{ex} \label{ex:2}
+Fügen Sie zunächst einen weiteren Abschnittstitel \emph{''Aufgabe \ref{ex:2}''}  in Overleaf hinzu.\\
+Versuchen Sie dann die unten dargestellten Texte und Formeln mit \LaTeX\ zu erzeugen.
+Die Befehle für die mathematischen Symbole finden Sie im \LaTeX -Cheat-Sheet oder unter:\\
+ \url{https://de.wikipedia.org/wiki/Hilfe:TeX}
+\begin{enumerate}
+	\item \emph{Für ein rechtwinkliges Dreieck gilt:} $c = \sqrt{a^2+b^2}$.
+	\item \emph{Das Volumen einer Kugel mit Radius $r$ ist:} $\pi\int_{-r}^{r}r^2-x^2 \,dx$.
+	\item \emph{Kleiner Gauß:} \[ 1+2+\cdot \cdot \cdot +n = \sum_{k=1}^{n}k=\frac{n(n+1)}{2}=\frac{n^2+n}{2} \]
+	\item \emph{Eine Funktion} $f:X \rightarrow Y$ \emph{ist injektiv, falls}
+		\begin{equation}
+			f(x_1)=f(x_2) \Rightarrow x_1=x_2
+		\end{equation}
+\end{enumerate}
+\end{ex}

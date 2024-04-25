@@ -1,0 +1,58 @@
+\documentclass{report}
+
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{hyperref}
+\usepackage{csquotes}
+\usepackage[a4paper]{geometry}
+
+\usepackage[
+    backend=biber,
+    style=apa,
+    sortlocale=de_DE,
+    natbib=true,
+    url=false,
+    doi=false,
+    sortcites=true,
+    sorting=nyt,
+    isbn=false,
+    hyperref=true,
+    backref=false,
+    giveninits=false,
+    eprint=false]{biblatex}
+\addbibresource{../references/bibliography.bib}
+
+
+\title{Ethik im Umgang mit Daten}
+\author{Name des Autors}
+\date{\today}
+
+
+\begin{document}
+
+\maketitle
+
+\abstract{
+    Dies ist eine Vorlage für eine Maturarbeit in der Informatik am Gymnasium Muttenz. Sie dient dazu, die Arbeit schnell und einfach zu starten und sollte einen guten Überblick über die Arbeit bieten.
+}
+
+\tableofcontents
+
+\chapter{Einleitung}
+
+Hier kommt die Einführung. Der Text hier sollte eigentlich noch viel länger sein, so das hier nicht so merkwürdige Umbrüche entstehen.
+
+Ich kann weitere Kapitel auch importieren.
+
+\input{chap_methode.tex}
+
+\section{Etwas mit Quellen}
+
+Etwas mit Änderung hier am Ende.
+
+Wenn ich eine Quelle zitieren möchte, kann ich das ganze einfach am Ende des Satzes machen \citep{example}. Oder wie \citet{example} sagt, auch mitten im Text.
+
+\printbibliography
+
+\end{document}

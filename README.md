@@ -40,7 +40,7 @@ ext install James-Yu.latex-workshop
 ```
 
 Sie finden dann im Ordner `documents` mehrere Unterordner mit verschiedenen
-Latex Projekten, die Sie verwenden können.
+Latex Projekten, die Sie verwenden können. In `documents/tutorial/tutorial.tex` finden Sie eine Einführung in Latex die Sie durcharbeiten können. Versuchen Sie zuerst das Dokument zu bauen/compilieren, und lesen Sie sich dann das PDF durch. Machen Sie danach Anpassungen am Dokument.
 
 ### RAG (Retrieval-Augmented Generation)
 

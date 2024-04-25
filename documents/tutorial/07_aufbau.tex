@@ -1,0 +1,46 @@
+\section{Der Aufbau einer Arbeit}
+
+\subsection{Kapitel und Inhaltsverzeichnis}
+Artikel werden in Abschnitte (\verb|\section{...}|) und Unterabschnitte (\verb|\subsection{...}|) unterteilt. \LaTeX\ nummeriert automatisch alle Abschnitte und Unterabschnitte.\\ Wenn Sie möchten, dass ein Abschnitt oder Unterabschnitt nicht nummeriert wird, fügen Sie ein Sternchen (\verb|*|) ein. 
+
+\medskip
+\noindent Beispielsweise wird \verb|\subsection{...}| nummerieret, \verb|\subsection*{...}| wird nicht nummeriert.
+
+\medskip
+\noindent Sollen alle Abschnitts- und Unterabschnitts-Titel in einem Inhaltsverzeichnis aufgeführt werden, so können Sie mit
+\verb|\tableofcontents| arbeiten. Dort wo Sie diesen Befehl notieren, wird automatisch ein Inhaltsverzeichnis erzeugt.
+
+\subsection{Quellen und Verzeichnisse}
+Ein weiteres Argument für die Verwendung von \LaTeX\ ist die einfache Handhabung von Zitaten und Quellen. 
+Man kann beispielsweise mit \texttt{biblatex} arbeiten, dabei wird eine externe Datei mit den Quellenangaben angelegt.
+Dies kann folgendermassen erstellt werden:
+\begin{enumerate}
+	\item Erstellen Sie neben dem Code-Editor, dort wo auch Ihre Datei \texttt{main.tex} und die Bilder sind, eine neue Datei: \texttt{bibliography.bib}.
+	\item Wenn Sie in dieser Datei ein ''@'' schreiben, so werden Ihnen einige Quellenarten vorgeschlagen.
+	\item Wenn Sie sich für eine Quellenart entscheiden, so wird automatisch ein Angabenraster aufgeführt, in welches die Literatur-Informationen eingetragen werden können.
+	\item Damit die Quellen genutzt werden können, müssen Sie in Ihrer \texttt{main.tex} Datei noch folgendes Package aufführen: 
+\end{enumerate}
+\qquad \qquad \verb|\usepackage[backend=biber,style=alphabetic,sorting=ynt]{biblatex} | 
+
+\bigskip
+\noindent Zudem benötigen Sie darunter \verb|\addbibresource{bibliography.bib}|, damit die Bibliographie-Datei importiert wird.
+Mit \verb|\printbibliography[heading=bibintoc,title={...}]| wird das Quellenverzeichnis dann erzeugt.\\
+Wenn man nun etwas zitieren möchten, kann man dies mit dem Befehl \verb|\cite{...}| tun. 
+
+\bigskip
+\noindent Schauen Sie sich unter folgendem Link noch ein Beispiel dazu an:\\
+\url{https://www.overleaf.com/project/66150e42e998070cd671cfa4}
+
+\newpage
+\begin{ex}
+Das Ziel dieser Aufgabe ist es, Ihr bisheriges Dokument als ''Arbeit'' zu gestalten.
+\begin{enumerate}
+	\item Fügen Sie mindestens drei neue Unterabschnitte hinzu.
+	\item Erstellen Sie nach dem Titelblatt ein Inhaltsverzeichnis.
+	\item Erstellen Sie eine Standardbibliographie (\texttt{bibliography.bib}) wie oben beschrieben.
+	\item Erstellen Sie in Ihrer \texttt{bibliography.bib} Datei mindestens einen Bucheintrag und einen Artikeleintrag.
+	\item Nutzen Sie in Ihrer \texttt{main.tex} Datei eine neue Seite, um das Quellenverzeichnis zu erstellen.
+	\item Zitieren Sie Ihre Quellen an einem Ort Ihrer Wahl.
+	\item Erstellen Sie auf der letzten Seite ein Abbildungsverzeichnis mit $\backslash$\texttt{listoffigures}.
+	\end{enumerate}
+\end{ex}

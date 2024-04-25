@@ -1,0 +1,36 @@
+\section{Einleitung}
+\subsection{\TeX und \LaTeX}
+
+\TeX\, (sprich „Tech“, kann auch „TeX“ geschrieben werden) ist ein Computerprogamm von Donald E. Knuth.
+Es dient zum Setzen von Texten und mathematischen Formeln.
+\vspace{2mm}
+
+% Leerzeilen sorgen für einen Abschnittsumbruch
+
+\LaTeX\, (sprich „Lah-tech“ oder „Lej-tech“, kann auch „LaTeX“ geschrieben werden) ist ein auf \TeX\, aufbauendes Computerprogramm und wurde von Leslie Lamport geschrieben. Es vereinfacht den Umgang mit  \TeX, indem es entsprechend der logischen Struktur des Dokuments auf vorgefertigte Layout Elemente zurückgreift.
+
+\newpage
+\section{Erste Schritte mit \LaTeX}
+\LaTeX\, unterscheidet sich in der Arbeitsmodus recht stark von vielen anderen Dokumenten-erstellungs-anwendungen, die Sie vielleicht verwendet haben, wie z.B. Microsoft Word oder LibreOffice Writer: Diese Werkzeuge bieten den Benutzern eine interaktive Seite, in die sie ihren Text eingeben und bearbeiten können und verschiedene Formen von Formatierungen anwenden können.
+
+\LaTeX\, funktioniert jedoch ganz anders: Stattdessen ist Ihr Dokument eine einfache Textdatei, die mit \LaTeX-Befehlen durchsetzt ist, die verwendet werden, um die gewünschten (gesetzten) Ergebnisse auszudrücken. Um ein sichtbares, gesetztes Dokument zu erstellen, wird Ihre \LaTeX-Datei von einer Software verarbeitet, die als \TeX-Engine bezeichnet wird, die die in Ihrer Textdatei eingebetteten Befehle verwendet, um den Satzprozess zu steuern und zu kontrollieren, wobei die \LaTeX-Befehle und der Dokumententext in eine professionell gesetzte PDF-Datei umgewandelt werden.
+
+\subsection{Arbeitsweise mit VSCode}
+Wenn Sie die nötigen Extensions in VSCode aktiviert haben, können Sie eine neue \textbf{.tex}-Datei im Code-Editor öffnen. Ist alles richtig eingestellt wie in dem Repository, dann sollte das neue PDF jeweils beim Speichern einer Datei gebaut werden. Oben rechts im Editor-Fenster finden Sie ein Icon, mit dem Sie das PDF auf der rechten Seite anzeigen können.
+
+\vspace{3mm}
+\begin{ex} Einstieg in \LaTeX
+
+\begin{enumerate}
+	\item Wie kann man im Code Editor Kommentare einfügen, ohne dass diese im PDF erscheinen?
+	\item Versuchen Sie nachzuvollziehen, was die einzelnen Codezeilen bewirken. Schreiben Sie Ihre Erkenntnisse mit der Kommentarfunktion auf.
+	\item Fügen Sie vor \verb|\begin{ex}| den Befehl \verb|\newpage| ein und kompilieren Sie Ihre Datei. Was beobachten Sie?
+\end{enumerate}
+\end{ex}
+\vspace{3mm}
+
+\noindent Sie werden merken, dass praktisch alle \LaTeX-Befehle mit einem ''\verb|\|'' \,beginnen. Zudem wird oft mit
+\verb|\begin{...}| und \verb|\end{...}| gearbeitet. 
+\vspace{1mm}\\
+
+\noindent Unter \url{https://www.overleaf.com/learn/latex/Learn_LaTeX_in_30_minutes} finden Sie viele weitere Informationen zu Syntax und Aufbau.

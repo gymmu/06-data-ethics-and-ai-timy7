@@ -1,0 +1,48 @@
+\section{Abbildungen} 
+
+Abbildungen werden mit der \verb|{figure}|-Umgebung und dem \verb|\includegraphics[ ]{}| Befehl erstellt, wobei die Grösse Ihrer Grafik in eckigen Klammern und der Dateiname in geschweiften Klammern platziert wird. Ein \verb|[h]| Zusatz nach dem \verb|\begin{figure}| Befehl teilt \LaTeX\ mit, das Bild an dieser bestimmten Stelle in Ihrem Dokument zu platzieren. Es wird auch empfohlen, dass Sie einen \verb|\label|- und \verb|\caption|- Befehl verwenden, um Ihre Abbildung ordnungsgemäss zu formatieren. Den Befehl \verb|\label{...}| werden Sie im nächsten Kapitel kennenlernen, damit kann man auf das gewünschte Bild verweisen. Eine ordnungsgemäss eingefügte Abbildung wird unten angezeigt.
+
+\begin{figure}[h]
+\centering 
+\includegraphics[width=0.5\textwidth]{meme.jpg} 
+\caption{Ein erstes Bild}
+\label{fig:meme}
+\end{figure}
+
+
+\noindent Diese Grafik wurde mit dem folgenden Code eingefügt:
+\begin{verbatim}
+\begin{figure}[h]
+\centering 
+\includegraphics[width=0.5\textwidth]{meme.jpg} 
+\caption{Ein erstes Bild}
+\label{fig:meme}
+\end{figure}
+\end{verbatim}
+
+\noindent Wenn Sie selbst ein Bild einfügen, so speichern Sie dieses am einfachsten links neben dem Code-Editor, dort wo sich auch Ihre Hauptdatei (\verb|main.tex|) befindet.\\ Zusätzlich können Sie die automatische englische Bezeichnung \emph{''figure''} zu \emph{''Abbildung''} ändern, indem Sie mit \verb|\usepackage[ngerman]{babel}| arbeiten.
+
+\begin{ex}\label{ex:6}
+Fügen Sie wieder einen neuen Abschnittstitel \emph{''Aufgabe \ref{ex:6}''}  in Overleaf hinzu.\\
+Fügen Sie zwei Bilder Ihrer Wahl in verschiedenen Grössen ein.\\Verwenden Sie den \verb|\label{...}|-Befehl, um später damit arbeiten zu können.
+\end{ex}
+
+\newpage
+\section{Querverweise und Hyperlinks}
+Querverweise und Hyperlinks sind ein weiteres starkes Merkmal von \LaTeX\ . Das dazu benötigte \texttt{hyperref}-Paket ist bei Overleaf bereits aufgeführt, daher können Sie direkt damit arbeiten.\\
+Querverweise werden gemacht, wenn Sie beispielsweise in einem Fliesstext auf einen anderen Abschnitt oder auf die Nummerierung einer Gleichung verweisen möchten.\\ Das praktische an der erzeugten PDF-Datei ist, dass der Querverweis ein Hyperlink ist, daher springt das Dokument nach Mausklick auf den Querverweis direkt zur richtigen Stelle.
+\vspace{2mm}\\
+Dafür müssen Sie zuerst die gewünschte Stelle, auf welche verwiesen werden soll, mit dem \verb|\label{...}|-Befehl kennzeichnen. Der Name, den Sie für den Verweis verwenden möchten, wird zwischen den geschweiften Klammern platziert. \\
+Wenn Sie nun zu einem späteren Zeitpunkt auf die mit dem Label gekennzeichnete Stelle verweisen möchten, so können Sie dies mit dem \verb|\ref{labelname}|-Befehl tun, wobei labelname der Name ist, den Sie diesem Abschnitt zuvor gegeben haben.
+
+\subsection{Links}
+Hyperlinks oder Links zu Webadressen werden ebenfalls in \LaTeX\ unterstützt. Eine einfache URL kann in einem Dokument mit dem \verb|\url{}|-Befehl eingefügt werden, wobei die Webadresse einschliesslich des \texttt{http://}-Teils in die geschweiften Klammern eingesetzt wird. Der Weblink \url{https://gym-muttenz.ch/} wird mit dem Code \verb|\url{https://gym-muttenz.ch/}| erstellt. Damit dies Funktioniert, müssen sie noch oben in Ihrer Datei das \verb|\usepackage{url}| aufführen.\\Beachten Sie, dass die eingefügte URL in einem PDF-Dokument, das die Funktion unterstützt, ein aktiver Link ist.
+\vspace{2mm}\\
+\begin{ex} \label{ex:3}
+Fügen Sie wieder einen neuen Abschnittstitel \emph{''Aufgabe \ref{ex:3}''}  in Overleaf hinzu.\\
+\begin{enumerate}
+	\item Schreiben Sie dann eine Zeile Text und fügen Sie einen Link Ihrer Wahl ein.
+	\item Erstellen Sie einen Querverweis zu Ihrem Abschnitt  ''Aufgabe \ref{ex:6}''.
+	\item Fügen Sie eine Zeile Text inklusive Querverweise zu Ihren obigen Bildern ein.
+\end{enumerate}
+\end{ex}

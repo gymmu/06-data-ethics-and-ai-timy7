@@ -1,0 +1,90 @@
+\documentclass{article}
+
+\usepackage[ngerman]{babel} %Sprachelemente wie z.B. Silbentrennung
+\usepackage[utf8]{inputenc} %Damit Umlaute und Sonderzeichen direkt eingegeben werden können
+\usepackage[T1]{fontenc}
+\usepackage{hyperref}
+\usepackage{csquotes}
+\usepackage[a4paper]{geometry}
+\usepackage{xcolor} %Farben
+\usepackage{setspace} %Zeilenabstand definieren
+\usepackage{graphicx} %Um externe Bilddateien einfügen zu können.
+\usepackage{hyperref} %Verlinkungen
+\usepackage{multicol} %Mehrere Spalten
+\usepackage{float}
+\usepackage{caption}
+
+\usepackage[
+    backend=biber,
+    style=apa,
+    sortlocale=de_DE,
+    natbib=true,
+    url=false,
+    doi=false,
+    sortcites=true,
+    sorting=nyt,
+    isbn=false,
+    hyperref=true,
+    backref=false,
+    giveninits=false,
+    eprint=false]{biblatex}
+    \addbibresource{../references/bibliography.bib}
+    
+%\renewcommand*\familydefault{\sfdefault} %Falls keine Serifen gewünscht
+
+% Definiere neue Theoreme. Diese können als Baublöcke für Aufgaben oder ähnliches verwendet werden.
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{rem}[theorem]{Remark}
+\newtheorem{ex}[theorem]{Übung}
+
+% Setze den Zeilenabstand
+\onehalfspacing %1.5 facher Zeilenabstand
+
+% Definiere automatische Übersetzungen.
+\addto{\captionsngerman}{
+	\renewcommand\refname{Literaturverzeichnis} %Name für Quellenverzeichnis
+}
+
+\title{Eine kurze Einführung in \LaTeX}
+\author{C. Geissmann}
+
+% Hier wird das Dokument gestartet. Alles was darin ist, wird im Dokument abgedruckt.
+\begin{document}
+
+% Hier wird die Titelseite gestaltet.
+\begin{titlepage}
+    \makeatletter % Das hier brauchen wir damit wir spezielle Befehle wie \@author verwenden können.
+	\begin{center}
+		{\scshape Gymnasium Muttenz} \vspace{0.5cm}
+
+		 Informatik 2023/2024\vspace{5.5cm}
+
+		{\huge\bfseries \@title}
+
+		\vspace{2cm}
+
+		{\Large\itshape \@author}
+
+        \vspace{2cm}
+
+        Version vom: \@date
+	\end{center}
+    
+    \makeatother % Wir müssen das @ wieder schliessen, damit der Rest ganz normal funktioniert.
+\end{titlepage}
+\newpage
+
+\setcounter{page}{1} %Seitennummern nach Titelseite mit 1 beginnen
+\tableofcontents %Inhaltsverzeichnis einblenden
+\clearpage %Seitenumbruch
+
+
+\input{01_einführung.tex} \newpage
+\input{02_grundlagen.tex} \newpage
+\input{03_listen.tex} \newpage
+\input{04_bilder.tex} \newpage
+\input{05_tabellen.tex} \newpage
+\input{06_mathe.tex} \newpage
+\input{07_aufbau.tex} \newpage
+
+\end{document}

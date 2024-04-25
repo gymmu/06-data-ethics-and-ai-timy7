@@ -1,0 +1,54 @@
+\section{Grundlagen}
+Einfache Textformatierung hilft dabei, wichtige Konzepte innerhalb eines Dokuments hervorzuheben und es lesbarer zu machen.
+
+\subsection{Abstände}
+''Unsichtbare'' Zeichen wie das Leerzeichen, Tabulatoren und das Zeilenende werden von \LaTeX\ einheitlich als Leerzeichen behandelt. \emph{Mehrere} Leerzeichen werden wie \emph{ein} Leerzeichen behandelt. Wenn man andere als die normalen Wort- und Zeilenabstände möchte, kann man dies also nicht durch die Eingabe von zusätzlichen Leerzeichen oder Leerzeilen erreichen, sondern nur mit entsprechenden \LaTeX\-Befehlen.\\
+\emph{Eine} Leerzeile zwischen Textzeilen bedeutet das Ende eines Absatzes. \emph{Mehrere} Leerzeilen werden wie eine Leerzeile behandelt.
+
+\vspace{3mm}
+\noindent Sie haben die Möglichkeit, Abstände manuell zu steuern. Beispielsweise sorgt ''\verb|\\|'' für einen Zeilenumbruch, alternativ können Sie auch \verb|\newline| verwenden.\\
+Für einen Seitenumbruch wird \verb|\newpage| oder auch \verb|\clearpage| verwendet.
+
+\vspace{3mm}
+\noindent {\bf Horizontale Abstände} können mit \verb|\hspace{...}| gesteuert werden, wobei Sie bei \verb|{...}| die Längenangabe inklusive Einheit definieren müssen. Soll der ganze Rest der Zeile leer gelassen werden, so können sie auch mit \verb|\hfill| arbeiten.
+
+\noindent {\bf Vertikale Abstände} (zwischen Zeilen oder Absätzen) können mit \verb|\vspace{...}| gesteuert werden, wobei Sie bei \verb|{...}| die Längenangabe inklusive Einheit definieren müssen. Soll etwas zuunterst auf einer Seite geschrieben werden, so können Sie davor mit \verb|\vfill| arbeiten.
+
+\vspace{3mm}
+\noindent Wenn Sie vermeiden möchten, dass eine Zeile automatisch eingerückt wird, so können Sie \verb|\noindent| verwenden.
+
+\newpage
+\subsection{Textformatierungen}
+Der Code \verb|\emph{Dies ist kursiv.}| erzeugt folgende Ausgabe: \emph{Dies ist kursiv}.
+
+\vspace{2mm}
+\noindent Andere häufige Anweisungen zur Textgestaltung sind:
+
+\vspace{4mm}
+\begin{tabular}{ll}
+\verb|\textbf{argument}| & \textbf{Fetter Text} \\
+\verb|\textit{argument}| &  \textit{kursiver Text} \\
+\verb|\underline{argument}| &  \underline{unterstrichener Text} \\
+\verb|{\tiny argument}| & \tiny{winziger Text} \\
+\verb|{\small argument}| & {\small kleiner Text} \\ 
+\verb|{\large argument}| & {\large grosser Text} \\
+\verb|{\huge argument}| & {\huge riesiger Text}
+\end{tabular}
+
+\vspace{4mm}
+\noindent Es ist auch möglich, Texte farbig zu gestalten. Dazu müssen Sie zunächst folgendes Package aufführen: \verb|\usepackage{xcolor}|. Dies können Sie beispielsweise auf Zeile 3 schreiben.\\
+ Danach erzeugt der Code ''\verb|\textcolor{blue}{farbiger Text}|''  folgende Ausgabe: \textcolor{blue}{farbiger Text}
+
+\vspace{4mm}
+\begin{ex} \label{ex:1}
+Ändern Sie zuerst in Overleaf den Abschnittstitel \emph{''Introduction''} zu \emph{''Aufgabe \ref{ex:1}''}.\\
+Versuchen Sie im Anschluss den unten abgedruckten Text zu erzeugen:
+\end{ex}
+
+\vspace{2mm}
+\noindent \textbf{Das ist ein formatierter Text.} \emph{Das ist ein formatierter Text.} \underline{Das ist ein formatierter Text.}\\
+\textcolor{red}{Das ist ein formatierter Text.} \textcolor{green}{Das ist ein formatierter Text.} \textcolor{blue}{Das ist ein formatierter Text.}\\
+\noindent {\tiny Das ist ein formatierter Text. Das ist ein formatierter Text. Das ist ein formatierter Text.}
+
+\vspace{1cm}
+\noindent {\huge Das ist ein formatierter Text. Das ist ein formatierter Text. Das ist ein formatierter Text.}

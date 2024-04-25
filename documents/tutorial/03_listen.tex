@@ -1,0 +1,77 @@
+\section{Listen}
+Es gibt drei Hauptarten von Listen, welche Sie nun kennenlernen werden: nummerierte Listen, Aufzählungslisten und beschreibende Listen.
+
+\subsection{Nummerierte Listen}
+Sie haben bereits weiter oben Nummerierte Listen gesehen. Die Aufgaben, welche Sie gelöst haben, wurden dadurch strukturiert und in kleinere Teile zerlegt.
+Eine nummerierte Liste kann mit dem Befehl \verb|\begin{enumerate}| folgendermassen erzeugt werden:
+\begin{verbatim}
+\begin{enumerate}
+\item Beginnen Sie jede nummerierte Liste mit einem \begin{enumerate}-Befehl.
+\item Fügen Sie Ihre Listenelemente mit dem \item-Befehl hinzu.
+\item Vergessen Sie nicht, Ihre Liste zu beenden.
+\end{enumerate}
+\end{verbatim}
+Obiger Code wird im PDF-Dokument folgendermassen dargestellt:
+\begin{enumerate}
+\item Beginnen Sie jede nummerierte Liste mit einem \verb|\begin{enumerate}|-Befehl.
+\item Fügen Sie Ihre Listenelemente mit dem \verb|\item|- Befehl hinzu.
+\item Vergessen Sie nicht, Ihre Liste zu beenden.
+\end{enumerate}
+
+
+\subsection{Aufzählungslisten}
+Manchmal möchten Sie jedoch eine Aufzählungsliste, auch bekannt als unnummerierte Liste. Aufzählungslisten funktionieren ähnlich wie nummerierte Listen.
+
+\begin{verbatim}
+\begin{itemize}
+\item Beginnen Sie jede Aufzählungsliste mit einem \begin{itemize}-Befehl.
+\item Fügen Sie Ihre Listenelemente mit dem \item-Befehl hinzu.
+\item Vergessen Sie nicht, Ihre Liste zu beenden.
+\end{itemize}
+\end{verbatim}
+Obiger Code wird im PDF-Dokument folgendermassen dargestellt:
+\begin{itemize}
+\item Beginnen Sie jede Aufzählungsliste mit einem \verb|\begin{itemize}|-Befehl.
+\item Fügen Sie Ihre Listenelemente mit dem \verb|\item|-Befehl hinzu.
+\item Vergessen Sie nicht, Ihre Liste zu beenden.
+\end{itemize}
+
+
+\subsection{Beschreibungslisten}
+Eine weitere Möglichkeit bietet die Beschreibungsliste:
+\begin{verbatim}
+\begin{description}
+\item[Aufzählungslisten] Nützlich für Listen von Materialien
+\item[Nummerierte Listen] Nützlich für Verfahren
+\item[Beschreibungslisten] Nützlich für Vokabeln
+\end{description}
+\end{verbatim}
+Obiger Code wird im PDF-Dokument folgendermassen dargestellt:
+
+\begin{description}
+\item[Aufzählungslisten] Nützlich für Listen von Materialien
+\item[Nummerierte Listen] Nützlich für Verfahren
+\item[Beschreibungslisten] Nützlich für Vokabeln
+\end{description}
+
+\vspace{5mm}
+\noindent Das spezielle an Beschreibungslisten ist, dass Sie ein Aufzählungssymbol Ihrer Wahl verwenden können:
+\begin{verbatim}
+\begin{description}
+\item [$\star$] Ein Sternsymbol als Aufzählungssymbol.
+\item [\#]  Ein Hashtag als Aufzählungssymbol.
+\item [$\Rightarrow$] Ein Pfeil als Aufzählungssymbol.
+\end{description}
+\end{verbatim}
+Obiger Code wird im PDF-Dokument folgendermassen dargestellt:
+\begin{description}
+\item [$\star$] Ein Sternsymbol als Aufzählungssymbol.
+\item [\#]  Ein Hashtag als Aufzählungssymbol.
+\item [$\Rightarrow$] Ein Pfeil als Aufzählungssymbol.
+\end{description}
+
+\vspace{3mm}
+\begin{ex} \label{ex:4}
+Fügen Sie wieder einen neuen Abschnittstitel \emph{''Aufgabe \ref{ex:4}''}  in Overleaf hinzu.\\
+Erstellen Sie eine Liste mit vier Einträgen, welche als Aufzählungssymbol einen Kreis ($\circ$) verwendet. Tipp: \LaTeX\ -Cheat-Sheet
+\end{ex}
