@@ -4,7 +4,7 @@ In diesem Projekt verfassen wir ein Dokument über die ethischen
 Herausforderungen im Zusammenhang mit Daten und künstlicher Intelligenz.
 
 Die Projektarbeit setzt sich aus mehreren Teilen zusammen, die nacheinander
-abgearbeitet werden. 
+abgearbeitet werden.
 
 1. Recherche zum Thema durchführen und ein Quellenverzeichnis erstellen.
 2. Die Rechercheergebnisse analysieren, in Notizen zusammenfassen und die Fragestellung formulieren.
@@ -55,4 +55,43 @@ Datensätze der KI-Hersteller angewiesen zu sein.
 Diese Technik macht es uns sehr viel einfacher Informationen aus Dokumenten zu
 extrahieren, braucht aber ein wenig Einrichtung bevor wir es verwenden können.
 
+#### WICHTIG: API Schlüssel für OpenAI erstellen
 
+Damit wir ChatGPT in unserem Projekt verwenden können, müssen Sie einen
+API-Schlüssel erstellen und im Projekt verwenden. Den Schlüssel können Sie
+[hier](https://platform.openai.com/api-keys) erstellen lassen, wenn Sie bereits
+einen Account bei OpenAI haben. Sie brauchen den Schlüssel dann, und müssen
+diesen in eine neue Datei `.env` einfügen.
+
+```text
+VITE_OPENAI_API_KEY=<YOUR_API_KEY>
+OPENAI_API_KEY=<YOUR_API_KEY>
+```
+
+**WICHTIG:** Diese Datei darf auf keinen Fall auf Github landen!
+
+#### Lokalen Webserver starten
+
+Das ganze läuft in einem lokalen Webserver, diesen müssen wir mit dem folgenden
+Befehl starten, öffnen Sie dazu ein Terminal und geben Sie diese beiden Befehle
+ein.
+
+```bash
+npm install
+npm run dev
+```
+
+Der erste Befehl installiert Ihnen alle Abhängigkeiten für das Projekt, der
+zweite startet den lokalen Webserver. Den ersten Befehl brauchen Sie nur beim
+ersten mal einzugeben, danach reicht `npm run dev`.
+
+#### Datenbank erstellen
+
+Damit unser lokal Webserver überhaupt etwas machen kann, müssen wir zuerst noch
+eine Datenbank erzeugen. Dabei werden die Dokumente in `data/` angeschaut und
+indexiert. Wie müssen zuerst also ein PDF Dokument in `data/` ablegen. Und dann
+den folgenden Befehl ausführen. Öffnen Sie dazu ein neues Terminal.
+
+```
+npm run create_db
+```
