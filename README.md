@@ -33,19 +33,19 @@ installieren. Hier finden die den entsprechenden Link:
 
 Wir verwenden `latexmk` um das Dokument zu erstellen und je nach Bedarf das Quellenverzeichnis zu erstellen. Um dieses zu verwenden müssen noch [perl](https://www.perl.org/get.html) installieren.
 
-    <details>
+<details>
 
-    <summary><h3>Vorsicht bei MacOS</h3></summary>
+<summary><h3>Vorsicht bei MacOS</h3></summary>
 
-    Bei MacOS ist die `MikTeX`-Installation ein weniger schwieriger. Da müssen Sie nach der Installation noch sagen wo Ihr System die Programme die `MikTeX` installiert finden kann. Das können Sie mit dem folgenden Befehl im Terminal machen:
+Bei MacOS ist die `MikTeX`-Installation ein weniger schwieriger. Da müssen Sie nach der Installation noch sagen wo Ihr System die Programme die `MikTeX` installiert finden kann. Das können Sie mit dem folgenden Befehl im Terminal machen:
 
-    ```bash
-    echo export 'PATH=~/bin:$PATH' >> ~/.zprofile
-    ```
+```bash
+echo export 'PATH=~/bin:$PATH' >> ~/.zprofile
+```
 
-    Mehr dazu können Sie hier finden: [Miktex auf MacOS installieren](https://miktex.org/howto/install-miktex-mac) und [Miktex Pfad anpassen](https://miktex.org/howto/modify-path)
+Mehr dazu können Sie hier finden: [Miktex auf MacOS installieren](https://miktex.org/howto/install-miktex-mac) und [Miktex Pfad anpassen](https://miktex.org/howto/modify-path)
 
-    </details>
+</details>
 
 Damit Sie Latex einfach und bequem in VSCode verwenden können, brauchen Sie
 zusätzlich noch diese Erweiterung. Drücken Sie einfach `CTRL + P` und geben Sie
