@@ -126,6 +126,10 @@ den folgenden Befehl ausführen. Öffnen Sie dazu ein neues Terminal.
 npm run create_db
 ```
 
+Sie können auch andere Formate wie `.md` oder `.txt` Dateien in den Ordner `rag/data/` ablegen. Diese werden automatisch gelesen und verarbeitet. Beides sind einfache Textformate, in denen Sie Notizen, oder auch andere Dinge, speichern können.
+
+Sie können auch Webseiten lesen lassen. Dafür können Sie einfach eine Liste mit Webseiten angeben, diese finden Sie in `rag/config/websites.json`.
+
 #### Lokalen Webserver starten
 
 Zusätzlich zur Webseite, brauchen Sie noch einen Webserver, der direkt Zugriff auf NodeJS hat, und dadurch auch auf die Datenbank die Sie erstellt haben. Diesen Server können Sie mit dem folgenden Befehl starten.
