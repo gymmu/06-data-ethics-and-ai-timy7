@@ -83,7 +83,7 @@ Damit wir ChatGPT in unserem Projekt verwenden können, müssen Sie einen
 API-Schlüssel erstellen und im Projekt verwenden. Den Schlüssel können Sie
 [hier](https://platform.openai.com/api-keys) erstellen lassen, wenn Sie bereits
 einen Account bei OpenAI haben. Sie brauchen den Schlüssel dann, und müssen
-diesen in eine neue Datei `.env` einfügen.
+diesen in eine neue Datei `rag/.env` einfügen.
 
 ```text
 VITE_OPENAI_API_KEY=<YOUR_API_KEY>
@@ -92,7 +92,15 @@ OPENAI_API_KEY=<YOUR_API_KEY>
 
 **WICHTIG:** Diese Datei darf auf keinen Fall auf Github landen!
 
-#### Lokalen Webserver starten
+#### Webseite starten
+
+Der ganze Code zu dem Projekt ist im Unterordner `rag/` zu finden. Wenn Sie also die folgenden Befehle ausführen, muss das Terminal im entsprechenden Ordner sein. Dazu müssen Sie den Befehl
+
+```bash
+cd rag
+```
+
+eingeben, bevor Sie die anderen Befehle laufen lassen.
 
 Das ganze läuft in einem lokalen Webserver, diesen müssen wir mit dem folgenden
 Befehl starten, öffnen Sie dazu ein Terminal und geben Sie diese beiden Befehle
@@ -110,10 +118,18 @@ ersten mal einzugeben, danach reicht `npm run dev`.
 #### Datenbank erstellen
 
 Damit unser lokal Webserver überhaupt etwas machen kann, müssen wir zuerst noch
-eine Datenbank erzeugen. Dabei werden die Dokumente in `data/` angeschaut und
-indexiert. Wie müssen zuerst also ein PDF Dokument in `data/` ablegen. Und dann
+eine Datenbank erzeugen. Dabei werden die Dokumente in `rag/data/` angeschaut und
+indexiert. Wie müssen zuerst also ein PDF Dokument in `rag/data/` ablegen. Und dann
 den folgenden Befehl ausführen. Öffnen Sie dazu ein neues Terminal.
 
-```
+```bash
 npm run create_db
+```
+
+#### Lokalen Webserver starten
+
+Zusätzlich zur Webseite, brauchen Sie noch einen Webserver, der direkt Zugriff auf NodeJS hat, und dadurch auch auf die Datenbank die Sie erstellt haben. Diesen Server können Sie mit dem folgenden Befehl starten.
+
+```bash
+npm run server
 ```
