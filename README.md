@@ -34,6 +34,7 @@ installieren. Hier finden die den entsprechenden Link:
 Wir verwenden `latexmk` um das Dokument zu erstellen und je nach Bedarf das Quellenverzeichnis zu erstellen. Um dieses zu verwenden müssen noch [perl](https://www.perl.org/get.html) installieren.
 
 <details>
+
     <summary><b>Vorsicht bei MacOS</b></summary>
 
     Bei MacOS ist die `MikTeX`-Installation ein weniger schwieriger. Da müssen Sie nach der Installation noch sagen wo Ihr System die Programme die `MikTeX` installiert finden kann. Das können Sie mit dem folgenden Befehl im Terminal machen:
