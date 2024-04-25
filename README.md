@@ -35,7 +35,7 @@ Wir verwenden `latexmk` um das Dokument zu erstellen und je nach Bedarf das Quel
 
 <details>
 
-<summary><h3>Vorsicht bei MacOS</h3></summary>
+<summary><h4>Vorsicht bei MacOS</h4></summary>
 
 Bei MacOS ist die `MikTeX`-Installation ein weniger schwieriger. Da müssen Sie nach der Installation noch sagen wo Ihr System die Programme die `MikTeX` installiert finden kann. Das können Sie mit dem folgenden Befehl im Terminal machen:
 
@@ -46,6 +46,8 @@ echo export 'PATH=~/bin:$PATH' >> ~/.zprofile
 Mehr dazu können Sie hier finden: [Miktex auf MacOS installieren](https://miktex.org/howto/install-miktex-mac) und [Miktex Pfad anpassen](https://miktex.org/howto/modify-path)
 
 </details>
+
+#### VSCode Extension: Latex Workshop
 
 Damit Sie Latex einfach und bequem in VSCode verwenden können, brauchen Sie
 zusätzlich noch diese Erweiterung. Drücken Sie einfach `CTRL + P` und geben Sie
