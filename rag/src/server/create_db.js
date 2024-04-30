@@ -5,20 +5,13 @@ import { PuppeteerWebBaseLoader } from "langchain/document_loaders/web/puppeteer
 import { DirectoryLoader } from "langchain/document_loaders/fs/directory";
 import { RecursiveCharacterTextSplitter } from "langchain/text_splitter";
 import { OpenAIEmbeddings } from "@langchain/openai";
-import { CloseVectorNode } from "@langchain/community/vectorstores/closevector/node";
-
 import { LanceDB } from "@langchain/community/vectorstores/lancedb";
 import { connect } from "vectordb";
-import * as fs from "node:fs/promises";
-import * as path from "node:path";
-import os from "node:os";
-
-import puppeteer from "puppeteer";
 
 import { loadJSON } from "./utils.js";
 load_dotenv();
 
-const vectorStorePath = "closevector";
+const vectorStorePath = "lancedb";
 const DATA_PATH = "data/";
 const ragConfig = loadJSON("config/rag.json");
 
@@ -74,36 +67,6 @@ async function load_documents() {
   return [chunks, webChunks].flat();
 }
 
-async function getWebsiteLinks(baseUrl) {
-  const browser = await puppeteer.launch({ headless: "new" });
-  const page = await browser.newPage();
-  console.log("Opening page: ", baseUrl);
-  await page.goto(baseUrl);
-
-  await page.waitForSelector("a");
-
-  const content = await page.content();
-  console.log(content);
-
-  const links = await page.$$eval("a", (as) => {
-    const l = as.map((a) => a.href);
-    return l;
-  });
-  console.log("Gathered the following links:", links);
-  browser.close();
-  return links;
-}
-
-async function split_text(docs) {
-  const splitter = new RecursiveCharacterTextSplitter({
-    chunkSize: ragConfig.chunkSize,
-    chunkOverlap: ragConfig.chunkOverlap,
-  });
-  const chunks = await splitter.splitDocuments(docs);
-  console.log("Documents splitted");
-  return chunks;
-}
-
 async function save_to_chroma(chunks) {
   const docs = chunks.map((c) => {
     return {
@@ -111,7 +74,7 @@ async function save_to_chroma(chunks) {
       metadata: { source: c.metadata.source },
     };
   });
-  const db = await connect("./lancedb");
+  const db = await connect(vectorStorePath);
   const embeddings = new OpenAIEmbeddings();
   try {
     await db.dropTable("vectors");
@@ -126,11 +89,9 @@ async function save_to_chroma(chunks) {
     },
   ]);
 
-  const vectorStore = await LanceDB.fromDocuments(docs, embeddings, {
-    table,
-  });
+  await LanceDB.fromDocuments(docs, embeddings, { table });
 
-  console.log("Saved chunks to Chroma");
+  console.log("Saved chunks to in LanceDB");
 }
 
 await main();

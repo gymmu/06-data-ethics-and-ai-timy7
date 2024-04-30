@@ -1,10 +1,8 @@
 import { config as load_dotenv } from "dotenv";
-import { CloseVectorNode } from "@langchain/community/vectorstores/closevector/node";
 import { OpenAIEmbeddings, ChatOpenAI } from "@langchain/openai";
 import { PromptTemplate } from "@langchain/core/prompts";
 import { createStuffDocumentsChain } from "langchain/chains/combine_documents";
 import { StringOutputParser } from "@langchain/core/output_parsers";
-
 import { LanceDB } from "@langchain/community/vectorstores/lancedb";
 import { connect } from "vectordb";
 
@@ -12,7 +10,7 @@ import { loadJSON } from "./utils.js";
 
 load_dotenv();
 
-const vectorStorePath = "closevector";
+const vectorStorePath = "lancedb";
 const ragConfig = loadJSON("config/rag.json");
 
 const PROMT_TEMPLATE = `Answer the question based only on the following context:
@@ -30,12 +28,11 @@ Answer the question based on the above context: {question}
 export async function query(arg) {
   console.log("Querying: " + arg);
 
-  const db = await connect("./lancedb");
+  const db = await connect(vectorStorePath);
   const table = await db.openTable("vectors");
 
   const vectorStore = new LanceDB(new OpenAIEmbeddings(), { table });
 
-  //const vectorStore = await CloseVectorNode.load(vectorStorePath, new OpenAIEmbeddings())
   const result = await vectorStore.similaritySearch(arg, ragConfig.numDocs);
   console.log("Result:", result);
 
