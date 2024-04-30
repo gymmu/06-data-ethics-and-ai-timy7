@@ -21,8 +21,7 @@ async function main() {
 
 async function generate_data_store() {
   const chunks = await load_documents();
-  //const chunks = await split_text(documents);
-  await save_to_chroma(chunks);
+  await saveToDB(chunks);
 }
 
 async function load_documents() {
@@ -67,7 +66,7 @@ async function load_documents() {
   return [chunks, webChunks].flat();
 }
 
-async function save_to_chroma(chunks) {
+async function saveToDB(chunks) {
   const docs = chunks.map((c) => {
     return {
       pageContent: c.pageContent,
