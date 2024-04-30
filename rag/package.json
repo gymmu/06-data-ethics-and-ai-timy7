@@ -26,6 +26,7 @@
     "express": "^4.19.2",
     "langchain": "^0.1.32",
     "pdf-parse": "^1.1.1",
-    "puppeteer": "^19.11.1"
+    "puppeteer": "^19.11.1",
+    "vectordb": "^0.1.19"
   }
 }
