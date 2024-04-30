@@ -113,6 +113,11 @@ async function save_to_chroma(chunks) {
   });
   const db = await connect("./lancedb");
   const embeddings = new OpenAIEmbeddings();
+  try {
+    await db.dropTable("vectors");
+  } catch (e) {
+    console.log("Es gibt keine Tabelle 'vectors'...");
+  }
   const table = await db.createTable("vectors", [
     {
       vector: await embeddings.embedQuery("Hello world"),
