@@ -26,3 +26,4 @@ dist-ssr
 closevector/
 .env
 data/
+lancedb/

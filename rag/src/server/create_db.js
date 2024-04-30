@@ -7,6 +7,12 @@ import { RecursiveCharacterTextSplitter } from "langchain/text_splitter";
 import { OpenAIEmbeddings } from "@langchain/openai";
 import { CloseVectorNode } from "@langchain/community/vectorstores/closevector/node";
 
+import { LanceDB } from "@langchain/community/vectorstores/lancedb";
+import { connect } from "vectordb";
+import * as fs from "node:fs/promises";
+import * as path from "node:path";
+import os from "node:os";
+
 import puppeteer from "puppeteer";
 
 import { loadJSON } from "./utils.js";
@@ -99,11 +105,26 @@ async function split_text(docs) {
 }
 
 async function save_to_chroma(chunks) {
-  const vectorStore = await CloseVectorNode.fromDocuments(
-    chunks,
-    new OpenAIEmbeddings()
-  );
-  vectorStore.save(vectorStorePath);
+  const docs = chunks.map((c) => {
+    return {
+      pageContent: c.pageContent,
+      metadata: { source: c.metadata.source },
+    };
+  });
+  const db = await connect("./lancedb");
+  const embeddings = new OpenAIEmbeddings();
+  const table = await db.createTable("vectors", [
+    {
+      vector: await embeddings.embedQuery("Hello world"),
+      text: "sample",
+      source: "a",
+    },
+  ]);
+
+  const vectorStore = await LanceDB.fromDocuments(docs, embeddings, {
+    table,
+  });
+
   console.log("Saved chunks to Chroma");
 }
 
