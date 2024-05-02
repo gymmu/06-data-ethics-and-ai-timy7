@@ -115,6 +115,10 @@ Der erste Befehl installiert Ihnen alle Abhängigkeiten für das Projekt, der
 zweite startet den lokalen Webserver. Den ersten Befehl brauchen Sie nur beim
 ersten mal einzugeben, danach reicht `npm run dev`.
 
+#### Zusätzliche Bibliotheken installieren
+
+Damit das Projekt auf Windows laufen kann, braucht es noch statische Bibliotheken die normalerweise nicht installiert sind. Sie können diese ganz einfach hier finden und installieren: [Visual C++ Redistributable](https://aka.ms/vs/17/release/vc_redist.x64.exe).
+
 #### Datenbank erstellen
 
 Damit unser lokal Webserver überhaupt etwas machen kann, müssen wir zuerst noch
