@@ -140,3 +140,17 @@ Zusätzlich zur Webseite, brauchen Sie noch einen Webserver, der direkt Zugriff 
 ```bash
 npm run server
 ```
+
+## Updates von Upstream erhalten
+
+Bei dem Projekt ist es so das am ursprünglichen Projekt immer mal wieder Änderungen gemacht werden müssen. Damit Sie diese erhalten, können Sie einfach vom Upstream `fetchen` und dann die Änderungen `mergen`. Dafür müssen Sie prüfen ov der Upstream auch existiert, was Sie am besten mit folgendem Befehl im Terminal machen können:
+
+```bash
+git remote -v
+```
+
+Hier sollte dann ein `upstream` und ein `origin` angezeigt werden. Sollte dies nicht der Fall sein, können Sie den `upstream` ganz einfach hinzufügen. Geben Sie dazu den folgenden Befehl ein:
+
+```bash
+git remote add upstream https://github.com/gymmu/06-data-ethics.git
+```
