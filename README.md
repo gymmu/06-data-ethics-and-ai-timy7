@@ -77,20 +77,19 @@ Datensätze der KI-Hersteller angewiesen zu sein.
 Diese Technik macht es uns sehr viel einfacher Informationen aus Dokumenten zu
 extrahieren, braucht aber ein wenig Einrichtung bevor wir es verwenden können.
 
-#### WICHTIG: API Schlüssel für OpenAI erstellen
+#### WICHTIG: API Schlüssel für OpenAI entsperren
 
-Damit wir ChatGPT in unserem Projekt verwenden können, müssen Sie einen
-API-Schlüssel erstellen und im Projekt verwenden. Den Schlüssel können Sie
-[hier](https://platform.openai.com/api-keys) erstellen lassen, wenn Sie bereits
-einen Account bei OpenAI haben. Sie brauchen den Schlüssel dann, und müssen
-diesen in eine neue Datei `rag/.env` einfügen.
+Damit wir ChatGPT in unserem Projekt verwenden können, brauchen Sie einen
+API-Schlüssel. Dafür habe ich Ihnen meinen Schlüssel zur Verfügung gestellt. Dieser wird nach dem Projekt wieder gelöscht. Sie dürfen den Schlüssel keinesfalls mit jemandem teilen. Sie müssen sich auch bewusst sein das die Anfragen über meinen Account laufen, ich kann also sehen welche Anfragen Sie stellen!
 
-```text
-VITE_OPENAI_API_KEY=<YOUR_API_KEY>
-OPENAI_API_KEY=<YOUR_API_KEY>
+Um den Schlüssel zu erstellen, können Sie den folgenden Befehl ausführen. Sie müssen dafür ein `Git bash` Terminal öffnen und den folgenden Befehl eingeben. Das Passwort für die Entschlüsselung bekommen Sie im Unterricht.
+
+```bash
+cd rag
+gpg --output .env --decrypt env.gpg
 ```
 
-**WICHTIG:** Diese Datei darf auf keinen Fall auf Github landen!
+**WICHTIG:** Die entschlüsselte Datei darf auf keinen Fall auf Github, oder irgendwo sonst, landen! Den Inhalt der Datei dürfen Sie keinesfalls mit jemandem teilen.
 
 #### Webseite starten
 
