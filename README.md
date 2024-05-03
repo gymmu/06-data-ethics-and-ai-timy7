@@ -78,20 +78,19 @@ Datensätze der KI-Hersteller angewiesen zu sein.
 Diese Technik macht es uns sehr viel einfacher Informationen aus Dokumenten zu
 extrahieren, braucht aber ein wenig Einrichtung bevor wir es verwenden können.
 
-#### WICHTIG: API Schlüssel für OpenAI erstellen
+#### WICHTIG: API Schlüssel für OpenAI entsperren
 
-Damit wir ChatGPT in unserem Projekt verwenden können, müssen Sie einen
-API-Schlüssel erstellen und im Projekt verwenden. Den Schlüssel können Sie
-[hier](https://platform.openai.com/api-keys) erstellen lassen, wenn Sie bereits
-einen Account bei OpenAI haben. Sie brauchen den Schlüssel dann, und müssen
-diesen in eine neue Datei `rag/.env` einfügen.
+Damit wir ChatGPT in unserem Projekt verwenden können, brauchen Sie einen
+API-Schlüssel. Dafür habe ich Ihnen meinen Schlüssel zur Verfügung gestellt. Dieser wird nach dem Projekt wieder gelöscht. Sie dürfen den Schlüssel keinesfalls mit jemandem teilen. Sie müssen sich auch bewusst sein das die Anfragen über meinen Account laufen, ich kann also sehen welche Anfragen Sie stellen!
 
-```text
-VITE_OPENAI_API_KEY=<YOUR_API_KEY>
-OPENAI_API_KEY=<YOUR_API_KEY>
+Um den Schlüssel zu erstellen, können Sie den folgenden Befehl ausführen. Sie müssen dafür ein `Git bash` Terminal öffnen und den folgenden Befehl eingeben. Das Passwort für die Entschlüsselung bekommen Sie im Unterricht.
+
+```bash
+cd rag
+gpg --output .env --decrypt env.gpg
 ```
 
-**WICHTIG:** Diese Datei darf auf keinen Fall auf Github landen!
+**WICHTIG:** Die entschlüsselte Datei darf auf keinen Fall auf Github, oder irgendwo sonst, landen! Den Inhalt der Datei dürfen Sie keinesfalls mit jemandem teilen.
 
 #### Webseite starten
 
@@ -116,6 +115,10 @@ Der erste Befehl installiert Ihnen alle Abhängigkeiten für das Projekt, der
 zweite startet den lokalen Webserver. Den ersten Befehl brauchen Sie nur beim
 ersten mal einzugeben, danach reicht `npm run dev`.
 
+#### Zusätzliche Bibliotheken installieren
+
+Damit das Projekt auf Windows laufen kann, braucht es noch statische Bibliotheken die normalerweise nicht installiert sind. Sie können diese ganz einfach hier finden und installieren: [Visual C++ Redistributable](https://aka.ms/vs/17/release/vc_redist.x64.exe).
+
 #### Datenbank erstellen
 
 Damit unser lokal Webserver überhaupt etwas machen kann, müssen wir zuerst noch
@@ -137,4 +140,18 @@ Zusätzlich zur Webseite, brauchen Sie noch einen Webserver, der direkt Zugriff 
 
 ```bash
 npm run server
+```
+
+## Updates von Upstream erhalten
+
+Bei dem Projekt ist es so das am ursprünglichen Projekt immer mal wieder Änderungen gemacht werden müssen. Damit Sie diese erhalten, können Sie einfach vom Upstream `fetchen` und dann die Änderungen `mergen`. Dafür müssen Sie prüfen ov der Upstream auch existiert, was Sie am besten mit folgendem Befehl im Terminal machen können:
+
+```bash
+git remote -v
+```
+
+Hier sollte dann ein `upstream` und ein `origin` angezeigt werden. Sollte dies nicht der Fall sein, können Sie den `upstream` ganz einfach hinzufügen. Geben Sie dazu den folgenden Befehl ein:
+
+```bash
+git remote add upstream https://github.com/gymmu/06-data-ethics.git
 ```
