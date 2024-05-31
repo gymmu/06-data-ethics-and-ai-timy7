@@ -6,6 +6,9 @@
 \usepackage{hyperref}
 \usepackage{csquotes}
 \usepackage[a4paper]{geometry}
+\usepackage{graphicx} %Um externe Bilddateien einfügen zu können.
+\usepackage{float}
+\usepackage{caption}
 
 \usepackage[
     backend=biber,
@@ -89,6 +92,14 @@ Die anderen Daten, die KI benutzt können aus vielfältigen Quellen stammen, ein
   Unternehmensdatenbanken und öffentlichen Datensätzen. Das bedeutet, die Data die KI verwendet sind genau so zuverlässig wie die Quellen aus dennen sie stammen.
 KI kann aber nicht auf Daten aus dem Internet verzichten.  
 
+
+\begin{figure}[h]
+  \centering 
+  \includegraphics[width=0.5\textwidth]{meme.jpg} 
+  \caption{Ein erstes Bild}
+  \label{fig:meme}
+  \end{figure}
+
    \chapter{Bestandteile einer KI}
  
 KI-Systeme sind in der Lage, ihr Handeln anzupassen, indem sie die Folgen früherer Aktionen analysieren und autonom arbeiten.
@@ -124,7 +135,7 @@ erzeugte Modell kann dann auch auf Daten angewandt werden, die die Künstliche I
    dem Verständnis von Texten oder zur besseren Entscheidungsfindung genutzt. 
 
 
-   \capter{Wie wird KI angewendet?}
+   \chapter{Wie wird KI angewendet?}
    ChatGPT
    Virtuelle Assistenten
    Robotik
@@ -140,7 +151,7 @@ Ebenfalls mittels Gesichtserkennung erkennt Facebook Photo Review, wer auf neu h
 Fotos abgebildet ist und fragt die Person nach ihrem Einverständnis. Digitalkameras lernen, automatisch
  auf Gesichter zu fokussieren oder bewegende Gegenstände wie Autos zu verfolgen und scharf zu stellen.
 
- \capter{Ethische Probleme im Bezug auf KI}
+ \chapter{Ethische Probleme im Bezug auf KI}
 
  Scamming
  Seit Ende März 2023 gestattet OpenAI die Integration von ChatGPT in die Produkte von Unternehmen, 
@@ -156,7 +167,21 @@ für die anderen Benützer anwenden.
  die mal irgendwo im Netz aufgetaucht waren, vielleicht  Blogs von Menschen aller Berufen und Nationalitäten. 
 Ist das nicht gefährlich wenn KI unsere Daten ins spiel nehmen beginnt? Natürlich weisst fast jeder das man gut nachdenken 
 muss bevor man irgendwelche Informationen ins Netz lädt und trotzdem gibt es genug von solchen die 
- 
+
+
+Veröffentlichung sensibler Informationen
+Generative KI demokratisiert die KI-Fähigkeiten und macht sie leichter zugänglich. 
+Diese Kombination aus Demokratisierung und Zugänglichkeit kann dazu führen, dass zB.ein medizinischer 
+Forscher versehentlich sensible Patientendaten preisgibt oder eine Verbrauchermarke ihre Produktstrategie
+ unwissentlich an Dritte weitergibt. Die Folgen solcher unbeabsichtigten Vorfälle können das Vertrauen der 
+ Patienten oder Kunden erschüttern und rechtliche Konsequenzen nach sich ziehen.
+
+  Rolle der Mitarbeiter
+  KI kann einen Großteil der täglichen Aufgaben von Wissensarbeitern übernehmen, darunter Schreiben,
+   Codieren, Erstellen von Inhalten, Zusammenfassen und Analysieren. Obwohl die Verdrängung und der Ersatz
+   von Arbeitskräften seit dem Einsatz der ersten KI- und Automatisierungs-Tools anhält, hat sich das Tempo 
+   durch die Innovationen im Bereich der generativen KI-Technologien beschleunigt. Die Zukunft der Arbeit selbst
+   verändert sich und die ethischsten Unternehmen investieren in diesen Wandel.
 
 
 \input{chap_methode.tex}
@@ -167,10 +192,17 @@ Etwas mit Änderung hier am Ende.
 
 Wenn ich eine Quelle zitieren möchte, kann ich das ganze einfach am Ende des Satzes machen \citep{example}. Oder wie \citet{example} sagt, auch mitten im Text.
 
+\parskip = 1em %Abstand
+\parindent = 0em %Einrückung
+
 
 \begin{itemize}
+  
+    
 \item \url{https://www.produktion.de/technik/zukunftstechnologien/kuenstliche-intelligenz/kuenstliche-intelligenz-verstaendlich-erklaert-243.html#wie-funktioniert-kuenstliche-intelligenz}
 \item \url{https://www.europarl.europa.eu/topics/de/article/20200827STO85804/was-ist-kunstliche-intelligenz-und-wie-wird-sie-genutzt}
+
+
 \item \url{https://digitalzentrum-augsburg.de/kuenstliche-intelligenz-einfach-erklaert/}
 \item \url{https://datasolut.com/anwendungsgebiete-von-kuenstlicher-intelligenz/} -- Bild
 \item \url{https://datasolut.com/was-ist-deep-learning/} --Bild 2
