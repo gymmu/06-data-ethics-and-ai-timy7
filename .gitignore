@@ -26,3 +26,20 @@ dist-ssr
 closevector/
 .env
 data/
+lancedb
+
+# Files to ignore for latex
+*.aux
+*.bbl
+*.blg
+*.out
+*.pdf
+*.toc
+*.log
+*.nav
+*.snm
+*.synctex.gz
+*.bcf
+*.run.xml
+*.fls
+*.fdb_latexmk
